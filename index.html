@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="Faabric JS iText value change via jQuery">
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+
+<script id="jsbin-javascript">
+$( document ).ready(function() {
+  var value = 'dddddd';
+    var can_array = '"{"objects":[{"type":"image","originX":"left","originY":"top","left":0,"top":0,"width":568,"height":324.57,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":0,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"src":"http://localhost/iclicknprint/business-cards/images/catalog/products/48435%20Cappuccino%20BC-01-single.jpg","filters":[],"crossOrigin":"","alignX":"none","alignY":"none","meetOrSlice":"meet"},{"type":"i-text","originX":"left","originY":"top","left":252,"top":128.77,"width":152.02,"height":47.19,"fill":"#000000","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"text":"New Text","fontSize":"36","fontWeight":"normal","fontFamily":"Arial","fontStyle":"normal","lineHeight":1.16,"textDecoration":"","textAlign":"left","textBackgroundColor":"","styles":{}}],"background":"rgba(255, 255, 255, 1)"}"';
+can_array = can_array.split('},{');
+	console.log('can_array'+can_array);
+	var i = 0;
+	while(can_array[i])
+	{
+		var test = can_array[i].search('type":"i-text');
+		if(test > -1)
+		{
+            var tmp_arr_e = can_array[i].split(',');
+          var j = 0;
+          while(tmp_arr_e[j])
+            {
+              if(tmp_arr_e[j].search( 'text":"New Text' ) > -1)
+                {
+                  tmp_arr_e[j] = '"text":"'+value+'"';
+                }
+              j++;
+            }
+          can_array[i] = tmp_arr_e.join(',');
+			//alert(can_array); 
+            //$('body').html(can_array[i]);
+		}
+		i++;
+	}
+	
+	can_array = can_array.join('},{');
+//alert(can_array);
+$('body').html(can_array);
+});
+</script>
+
+
+
+<script id="jsbin-source-javascript" type="text/javascript">
+$( document ).ready(function() {
+  var value = 'dddddd';
+    var can_array = '"{"objects":[{"type":"image","originX":"left","originY":"top","left":0,"top":0,"width":568,"height":324.57,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":0,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"src":"http://localhost/iclicknprint/business-cards/images/catalog/products/48435%20Cappuccino%20BC-01-single.jpg","filters":[],"crossOrigin":"","alignX":"none","alignY":"none","meetOrSlice":"meet"},{"type":"i-text","originX":"left","originY":"top","left":252,"top":128.77,"width":152.02,"height":47.19,"fill":"#000000","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"text":"New Text","fontSize":"36","fontWeight":"normal","fontFamily":"Arial","fontStyle":"normal","lineHeight":1.16,"textDecoration":"","textAlign":"left","textBackgroundColor":"","styles":{}}],"background":"rgba(255, 255, 255, 1)"}"';
+can_array = can_array.split('},{');
+	console.log('can_array'+can_array);
+	var i = 0;
+	while(can_array[i])
+	{
+		var test = can_array[i].search('type":"i-text');
+		if(test > -1)
+		{
+            var tmp_arr_e = can_array[i].split(',');
+          var j = 0;
+          while(tmp_arr_e[j])
+            {
+              if(tmp_arr_e[j].search( 'text":"New Text' ) > -1)
+                {
+                  tmp_arr_e[j] = '"text":"'+value+'"';
+                }
+              j++;
+            }
+          can_array[i] = tmp_arr_e.join(',');
+			//alert(can_array); 
+            //$('body').html(can_array[i]);
+		}
+		i++;
+	}
+	
+	can_array = can_array.join('},{');
+//alert(can_array);
+$('body').html(can_array);
+});
+</script></body>
+</html>
